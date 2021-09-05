@@ -1,8 +1,21 @@
-console.log('webpack is working')
+import { listOfToDos, addTask} from './toDoObject.js'
 
-const toDoFactory = (title, description, dueDate, priority, project, isCompleted) => {
-    return { title, description, dueDate, priority, project, isCompleted}
+
+
+
+const displayListOfToDos = []
+
+
+function showSpecificProject(project) {
+    displayListOfToDos.length = 0
+    displayListOfToDos.push(listOfToDos.filter( todo => {
+        return todo.project == project
+    }))
+    return displayListOfToDos
 }
 
-const nick = 'nick'
 
+const project1 = document.querySelector('.project1')
+project1.addEventListener('click',() => {
+    console.log(showSpecificProject('bs'))
+})
