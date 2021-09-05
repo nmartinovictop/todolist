@@ -1,11 +1,18 @@
 
 
-const modal = document.querySelector(".modal");
-const trigger = document.querySelector(".trigger");
-const closeButton = document.querySelector(".close-button");
+const modal = document.querySelectorAll(".modal");
+const trigger = document.querySelectorAll(".trigger");
+const closeButton = document.querySelectorAll(".close-button");
 
 function toggleModal() {
-    modal.classList.toggle("show-modal");
+    console.log(this)
+
+    if (this.nodeName === 'BUTTON') {
+        console.log(this.nextElementSibling)
+        this.nextElementSibling.classList.toggle("show-modal");
+    } else {
+        this.parentElement.parentElement.classList.toggle("show-modal")
+    }
 }
 
 function windowOnClick(event) {
@@ -14,10 +21,11 @@ function windowOnClick(event) {
     }
 }
 
-trigger.addEventListener("click", toggleModal);
-closeButton.addEventListener("click", toggleModal);
+trigger.forEach(btn => btn.addEventListener("click", toggleModal));
+closeButton.forEach(btn => btn.addEventListener("click", toggleModal));
 window.addEventListener("click", windowOnClick);
 
 
 
-export { trigger, closeButton,toggleModal }
+
+export { trigger, closeButton, toggleModal, modal }

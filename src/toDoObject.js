@@ -1,4 +1,4 @@
-import { trigger, closeButton,toggleModal } from './modal.js'
+import { trigger, closeButton,toggleModal,modal,modalProj,triggerProj,closeButtonProj } from './modal.js'
 
 const toDoList = [];
 
@@ -30,7 +30,7 @@ function addTaskToList() {
     const project = document.querySelector('#project')
     listOfToDos.push(toDoFactory(title.value,description.value,dueDate.value,priority.value,project.value,false))
     console.log(listOfToDos)
-    // todoModal.style.display = "none"
+    toggleModal()
 }
 
 const addTask = document.querySelector('.addTask')

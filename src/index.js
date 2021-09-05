@@ -15,7 +15,7 @@ function showSpecificProject(project) {
 }
 
 
-const project1 = document.querySelector('.project1')
-project1.addEventListener('click',() => {
-    console.log(showSpecificProject('bs'))
-})
+// const project1 = document.querySelector('.project1')
+// project1.addEventListener('click',() => {
+//     console.log(showSpecificProject('bs'))
+// })
