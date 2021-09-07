@@ -1,4 +1,5 @@
 import { listOfToDos, addTask} from './toDoObject.js'
+import { addProjectToList, projectFactory, listOfProjects } from './projects.js'
 
 
 

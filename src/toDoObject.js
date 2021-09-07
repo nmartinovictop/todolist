@@ -20,7 +20,7 @@ const toDoFactory = (title, description, dueDate, priority, project, isCompleted
     return { title, description, dueDate, priority, project, isCompleted,id }
 }
 
- const listOfToDos = []
+const listOfToDos = []
 
 function addTaskToList() {
     const title = document.querySelector('#title')
