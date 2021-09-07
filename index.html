@@ -39,7 +39,7 @@
                     <label for="">Project</label>
                     <input type="text" id="project">
                 </div>
-                <button type="submit" class='submit-button'>Submit</button>
+                <button type="submit" class='submit-button' >Submit</button>
                     </form>
                 </div>
             </div>
@@ -47,7 +47,17 @@
             <div class="modal">
                 <div class="modal-content">
                     <span class="close-button">×</span>
-                    <h1>Hello, I am a modal!</h1>
+                    <form class="addProject" onsubmit="return false">
+                        <div>
+                        <label for="" >Enter Title</label>
+                        <input type="text" id="project-title">
+                    </div>
+                    <div>
+                        <label for="">Enter description</label>
+                        <input type="text" id="project-description">
+                    </div>
+                    <button type="submit" class='submit-button' id='project-submit'>Submit</button>
+                </form>
                 </div>
             </div>
         </div>
