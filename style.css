@@ -9,8 +9,13 @@
 
 .projects {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     width : 80%
+}
+
+.projects > h3 {
+    padding-left: 25px;
+    padding-right: 25px
 }
 
 .create-task {
