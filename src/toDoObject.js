@@ -1,4 +1,6 @@
 import { trigger, closeButton,toggleModal,modal,modalProj,triggerProj,closeButtonProj } from './modal.js'
+import { addProjectToList, listOfProjects, projectFactory } from './projects.js';
+import { showProjects } from './renderProjects.js';
 
 const toDoList = [];
 
@@ -14,8 +16,17 @@ const counter = counterCreator()
 const toDoFactory = (title, description, dueDate, priority, project, isCompleted) => {
 
     let id = counter()
+    let projExists = false;
+    listOfProjects.forEach( proj => {
+        if (proj.title === project) {
+            projExists = true;
+        }
+    })
 
-
+    if (projExists === false) {
+        listOfProjects.push(projectFactory(project,"NA"))
+        showProjects()
+    }
 
     return { title, description, dueDate, priority, project, isCompleted,id }
 }
@@ -30,11 +41,17 @@ function addTaskToList() {
     const project = document.querySelector('#project')
     listOfToDos.push(toDoFactory(title.value,description.value,dueDate.value,priority.value,project.value,false))
     console.log(listOfToDos)
-    toggleModal()
+    let newToggle = toggleModal.bind(this)
+    newToggle()
+    addTask.reset()
 }
 
 const addTask = document.querySelector('.addTask')
 addTask.addEventListener('submit',addTaskToList)
+
+
+
+
 
 export { toDoFactory, listOfToDos, addTask}
 

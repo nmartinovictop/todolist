@@ -6,11 +6,11 @@ const closeButton = document.querySelectorAll(".close-button");
 const submitButton = document.querySelectorAll(".submit-button")
 
 function toggleModal() {
-    console.log(this.nodeName)
 
-    if (this.nodeName === 'BUTTON') {
-        console.log(this.nextElementSibling)
+    if (this.classList.contains('trigger')) {
         this.nextElementSibling.classList.toggle("show-modal");
+    } else if (this.parentElement.parentElement.classList.contains("modal")){
+        this.parentElement.parentElement.classList.toggle("show-modal")
     } else {
         this.parentElement.parentElement.classList.toggle("show-modal")
     }
@@ -24,7 +24,7 @@ function windowOnClick(event) {
 
 trigger.forEach(btn => btn.addEventListener("click", toggleModal));
 closeButton.forEach(btn => btn.addEventListener("click", toggleModal));
-submitButton.forEach(btn => btn.addEventListener("submit",toggleModal) )
+// submitButton.forEach(btn => btn.addEventListener("click",toggleModal))
 window.addEventListener("click", windowOnClick);
 
 
