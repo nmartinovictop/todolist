@@ -1,5 +1,6 @@
 import { trigger, closeButton, toggleModal, modal } from './modal.js'
 import { showProjects } from './renderProjects.js'
+import { listOfToDos } from './toDoObject.js'
 
 const listOfProjects = [{title: 'All'},{title: "Inbox"}]
 
@@ -26,13 +27,16 @@ function addProjectToList() {
 const submit = document.querySelector('.addProject')
 submit.addEventListener('submit',addProjectToList)
 
+const displayListOfToDos = []
+
 function showSpecificProject(project) {
-    displayListOfToDos.length = 0
-    displayListOfToDos.push(listOfToDos.filter( todo => {
+    // displayListOfToDos.length = 0
+    const projectList = listOfToDos.filter( todo => {
         return todo.project == project
-    }))
-    return displayListOfToDos
+    })
+    return projectList
 }
 
+const currentProject = listOfProjects[0]
 
-export { addProjectToList, projectFactory, listOfProjects, showSpecificProject }
+export { addProjectToList, projectFactory, listOfProjects, showSpecificProject, currentProject }

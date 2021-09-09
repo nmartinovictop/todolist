@@ -1,6 +1,7 @@
 import { trigger, closeButton,toggleModal,modal,modalProj,triggerProj,closeButtonProj } from './modal.js'
 import { addProjectToList, listOfProjects, projectFactory } from './projects.js';
 import { showProjects } from './renderProjects.js';
+import { renderTasks } from './renderTasks.js';
 
 const toDoList = [];
 
@@ -43,11 +44,14 @@ function addTaskToList() {
     console.log(listOfToDos)
     let newToggle = toggleModal.bind(this)
     newToggle()
+    renderTasks(project.value)
     addTask.reset()
+    
 }
 
 const addTask = document.querySelector('.addTask')
 addTask.addEventListener('submit',addTaskToList)
+
 
 
 
