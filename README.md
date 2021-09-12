@@ -8,4 +8,5 @@ Ok. I have built in some functionality so that whenever a user creates a new pro
 - [x] Have all tasks appear under the all project.
 Tasks are now being added correctly
 - [x] add checkbox to task to mark if something is complete or not
-- [ ] make the checkbox adjust whether something isCompleted or not
+- [x] make the checkbox adjust whether something isCompleted or not
+- [ ] working on adding local storage

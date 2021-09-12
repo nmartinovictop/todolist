@@ -17,6 +17,11 @@ const counter = counterCreator()
 const toDoFactory = (title, description, dueDate, priority, project, isCompleted) => {
 
     let id = counter()
+
+    if (project=="") {
+        project = "Inbox"
+    }
+
     let projExists = false;
     listOfProjects.forEach( proj => {
         if (proj.title === project) {
@@ -41,10 +46,12 @@ function addTaskToList() {
     const priority = document.querySelector('#priority')
     const project = document.querySelector('#project')
     listOfToDos.push(toDoFactory(title.value,description.value,dueDate.value,priority.value,project.value,false))
+    localStorage.setItem('listoftodos',JSON.stringify(listOfToDos))
     console.log(listOfToDos)
     let newToggle = toggleModal.bind(this)
     newToggle()
-    renderTasks(project.value)
+    let setProject = project.value =="" ? "Inbox" : project.value
+    renderTasks(setProject)
     addTask.reset()
     
 }
