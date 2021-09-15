@@ -47,13 +47,27 @@ function addTaskToList() {
     const project = document.querySelector('#project')
     listOfToDos.push(toDoFactory(title.value,description.value,dueDate.value,priority.value,project.value,false))
     localStorage.setItem('listoftodos',JSON.stringify(listOfToDos))
+
     console.log(listOfToDos)
     let newToggle = toggleModal.bind(this)
     newToggle()
     let setProject = project.value =="" ? "Inbox" : project.value
+    
+    if (listOfProjects.some(e => e.title === setProject)) {
+        console.log(listOfProjects)
+    } else {
+        console.log(listOfProjects)
+        listOfProjects.push(projectFactory(project,"NA"))
+        localStorage.setItem('listofprojects',JSON.stringify(listOfProjects))
+
+    }
+
+
     renderTasks(setProject)
     addTask.reset()
     
+
+
 }
 
 const addTask = document.querySelector('.addTask')

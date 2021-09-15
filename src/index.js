@@ -1,4 +1,4 @@
-import { listOfToDos, addTask} from './toDoObject.js'
+import { listOfToDos, addTask, toDoFactory} from './toDoObject.js'
 import { addProjectToList, projectFactory, listOfProjects, showSpecificProject } from './projects.js'
 import { showProjects } from './renderProjects.js'
 import { renderTasks } from './renderTasks.js'
@@ -6,14 +6,18 @@ import { renderTasks } from './renderTasks.js'
 
 
 
-if (localStorage.length > 0 ) {
+if (localStorage.length > 1 ) {
 
-    let local = JSON.parse(localStorage['listoftodos'])
+    let localTodos = JSON.parse(localStorage['listoftodos'])
     // console.log(local)
-    local.forEach(task => {
+    localTodos.forEach(task => {
         listOfToDos.push(task)
     })
-
+    let localProjects = JSON.parse(localStorage['listofprojects'])
+    localProjects.forEach(project => {
+        listOfProjects.push(project)
+    })
+    showProjects()
     renderTasks("Inbox")
     console.log(listOfToDos)
 

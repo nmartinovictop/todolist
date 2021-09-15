@@ -10,3 +10,4 @@ Tasks are now being added correctly
 - [x] add checkbox to task to mark if something is complete or not
 - [x] make the checkbox adjust whether something isCompleted or not
 - [ ] working on adding local storage
+    - I'm have local storage for the tasks, but adding it for the projects seems to be difficult.  Work on this.

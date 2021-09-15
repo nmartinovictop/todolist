@@ -3,6 +3,7 @@ import { showProjects } from './renderProjects.js'
 import { listOfToDos } from './toDoObject.js'
 
 const listOfProjects = [{title: 'All'},{title: "Inbox"}]
+localStorage.setItem('listofprojects',JSON.stringify(listOfProjects))
 
 
 const projectFactory = (title,description) => {
@@ -19,7 +20,10 @@ function addProjectToList() {
     let newToggle = toggleModal.bind(this)
     newToggle()
     submit.reset()
+    localStorage.setItem('listofprojects',JSON.stringify(listOfProjects))
+
     showProjects()
+
 }
 
 // const addProject = document.querySelector('.addProject')
