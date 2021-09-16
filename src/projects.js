@@ -2,9 +2,14 @@ import { trigger, closeButton, toggleModal, modal } from './modal.js'
 import { showProjects } from './renderProjects.js'
 import { listOfToDos } from './toDoObject.js'
 
-const listOfProjects = [{title: 'All'},{title: "Inbox"}]
-localStorage.setItem('listofprojects',JSON.stringify(listOfProjects))
+const listOfProjects = []
 
+if (localStorage.length == 0) {
+
+let addProjects = [{title: 'All'},{title: "Inbox"}]
+addProjects.forEach(proj => listOfProjects.push(proj))
+localStorage.setItem('listofprojects',JSON.stringify(listOfProjects))
+}
 
 const projectFactory = (title,description) => {
 

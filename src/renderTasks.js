@@ -1,5 +1,8 @@
-const { taskCanvas } = require("./elements");
-const { showSpecificProject, currentProject } = require("./projects");
+// const { taskCanvas } = require("./elements");
+// const { showSpecificProject, currentProject } = require("./projects");
+
+import { taskCanvas } from "./elements.js"
+import { showSpecificProject, currentProject } from './projects.js'
 
 function renderTasks(project) {
     while (taskCanvas.firstChild) {
@@ -16,7 +19,7 @@ function renderTasks(project) {
         taskCheckBox.id = task.title
         taskCheckBox.name = task.id
 
-        if (task.isCompleted === true) {
+        if (task.isCompleted == true) {
             taskCheckBox.checked = true
         } 
 
