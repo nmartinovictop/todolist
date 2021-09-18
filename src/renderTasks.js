@@ -3,16 +3,22 @@
 
 import { taskCanvas } from "./elements.js"
 import { showSpecificProject, currentProject } from './projects.js'
+import { listOfToDos } from "./toDoObject.js";
 
 function renderTasks(project) {
     while (taskCanvas.firstChild) {
         taskCanvas.firstChild.remove();
     }
 
-    const tasks = showSpecificProject(project)
+
+    const tasks = project === 'All' ? listOfToDos : showSpecificProject(project)
+
+
+    
     tasks.forEach( task => {
 
         const taskDiv = document.createElement('div')
+        taskDiv.classList.add('tasks')
         taskCanvas.appendChild(taskDiv)
         const taskCheckBox = document.createElement('input')
         taskCheckBox.type = 'checkbox'
@@ -43,6 +49,8 @@ function renderTasks(project) {
         })
         
     })  
+    localStorage.setItem('listoftodos',JSON.stringify(listOfToDos))
+
 }
 
 

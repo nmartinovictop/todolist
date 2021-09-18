@@ -9,5 +9,6 @@ Ok. I have built in some functionality so that whenever a user creates a new pro
 Tasks are now being added correctly
 - [x] add checkbox to task to mark if something is complete or not
 - [x] make the checkbox adjust whether something isCompleted or not
-- [ ] working on adding local storage
-    - Local storage is completed for tasks and projects, but local storage is not updating when a task is check
+- [x] working on adding local storage
+- [x] Clicking on all should show all tasks
+- [ ] start making the front end look better
