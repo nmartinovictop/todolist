@@ -11,4 +11,6 @@ Tasks are now being added correctly
 - [x] make the checkbox adjust whether something isCompleted or not
 - [x] working on adding local storage
 - [x] Clicking on all should show all tasks
-- [ ] start making the front end look better
+- [x] figure out how I want tasks displayed
+- [x] add tasks with all fields correctly
+- [ ] display tasks correctly so that they are not all askew

@@ -7,7 +7,6 @@ import { renderTasks } from './renderTasks.js'
 if (localStorage.length > 1 ) {
 
     let localTodos = JSON.parse(localStorage['listoftodos'])
-    // console.log(local)
     localTodos.forEach(task => {
         listOfToDos.push(task)
     })
@@ -17,15 +16,9 @@ if (localStorage.length > 1 ) {
     })
     showProjects()
     renderTasks("Inbox")
-    console.log(listOfToDos)
 
   }
   
 
 
 showProjects()
-
-// const project1 = document.querySelector('.project1')
-// project1.addEventListener('click',() => {
-//     console.log(showSpecificProject('bs'))
-// })

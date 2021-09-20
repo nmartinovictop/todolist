@@ -50,7 +50,6 @@ function addTaskToList() {
     listOfToDos.push(toDoFactory(title.value,description.value,dueDate.value,priority.value,project.value,false))
     localStorage.setItem('listoftodos',JSON.stringify(listOfToDos))
 
-    // console.log(listOfToDos)
     let newToggle = toggleModal.bind(this)
     newToggle()
     let setProject = project.value =="" ? "Inbox" : project.value

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,64 +8,67 @@
     <title>To Do List</title>
     <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
-<div class='content'>
-    <div class='top-row'>
-        <div class='projects'>
+    <div class='content'>
+        <div class='top-row'>
+            <div class='projects'>
 
-        </div>
-        <div class='create-task'>
-            <button class="trigger">Click here to create a task</button>
-            <div class="modal">
-                <div class="modal-content">
-                    <span class="close-button">×</span>
-                    <form class="addTask" onsubmit="return false">
-                        <div>
-                        <label for="" >Enter Title</label>
-                        <input type="text" id="title" required>
+            </div>
+            <div class='create-task'>
+                <button class="trigger">Click here to create a task</button>
+                <div class="modal">
+                    <div class="modal-content">
+                        <span class="close-button">×</span>
+                        <form class="addTask" onsubmit="return false">
+                            <div>
+                                <label for="">Enter Title</label>
+                                <input type="text" id="title" required>
+                            </div>
+                            <div>
+                                <label for="">Enter description</label>
+                                <input type="text" id="description">
+                            </div>
+                            <div>
+                                <label for="">Due Date</label>
+                                <input type="date" id="date">
+                            </div>
+                            <div>
+                                <label for="">Priority</label>
+                                <input type="number" id="priority">
+                            </div>
+                            <div>
+                                <label for="">Project</label>
+                                <input type="text" id="project">
+                            </div>
+                            <button type="submit" class='submit-button'>Submit</button>
+                        </form>
                     </div>
-                    <div>
-                        <label for="">Enter description</label>
-                        <input type="text" id="description" >
+                </div>
+                <button class="trigger">Click here to create a project</button>
+                <div class="modal">
+                    <div class="modal-content">
+                        <span class="close-button">×</span>
+                        <form class="addProject" onsubmit="return false">
+                            <div>
+                                <label for="">Enter Title</label>
+                                <input type="text" id="project-title" required>
+                            </div>
+                            <div>
+                                <label for="">Enter description</label>
+                                <input type="text" id="project-description" required>
+                            </div>
+                            <button type="submit" class='submit-button' id='project-submit'>Submit</button>
+                        </form>
                     </div>
-                    <div>
-                    <label for="">Due Date</label>
-                    <input type="date" id="date" >
-                </div>
-                <div>
-                    <label for="">Priority</label>
-                    <input type="number" id="priority" >
-                </div>
-                <div>
-                    <label for="">Project</label>
-                    <input type="text" id="project">
-                </div>
-                <button type="submit" class='submit-button' >Submit</button>
-                    </form>
                 </div>
             </div>
-            <button class="trigger">Click here to create a project</button>
-            <div class="modal">
-                <div class="modal-content">
-                    <span class="close-button">×</span>
-                    <form class="addProject" onsubmit="return false">
-                        <div>
-                        <label for="" >Enter Title</label>
-                        <input type="text" id="project-title" required>
-                    </div>
-                    <div>
-                        <label for="">Enter description</label>
-                        <input type="text" id="project-description" required>
-                    </div>
-                    <button type="submit" class='submit-button' id='project-submit'>Submit</button>
-                </form>
-                </div>
-            </div>
         </div>
+        <div class='task-canvas'>
+        </div>
+        
     </div>
-    <div class='task-canvas'></div>
-
-</div>
 </body>
 <script src="./main.js"></script>
+
 </html>

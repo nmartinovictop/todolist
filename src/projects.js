@@ -21,7 +21,6 @@ function addProjectToList() {
     const title = document.querySelector('#project-title')
     const description = document.querySelector('#project-description')
     listOfProjects.push(projectFactory(title.value,description.value))
-    console.log(listOfProjects)
     let newToggle = toggleModal.bind(this)
     newToggle()
     submit.reset()

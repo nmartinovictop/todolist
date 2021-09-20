@@ -25,9 +25,33 @@
 
 .task-canvas {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+   
+}
+
+.task-canvas2 {
+    display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.tasks {
+    width: 50%;
+    height: 25px;
+    background-color: antiquewhite;
+    margin: 5px;
+    display: flex;
+    justify-content: space-between;
+    display: flex;
+
+}
+
+.task {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
 }
 
 
