@@ -3,7 +3,7 @@
 
 import { taskCanvas } from "./elements.js"
 import { showSpecificProject, currentProject } from './projects.js'
-import { listOfToDos } from "./toDoObject.js";
+import { listOfToDos, removeTaskFromList } from "./toDoObject.js";
 
 function renderTasks(project) {
     while (taskCanvas.firstChild) {
@@ -22,8 +22,11 @@ function renderTasks(project) {
         taskCanvas.appendChild(taskDiv)
         const indDiv = document.createElement('div')
         indDiv.classList.add('task')
+        indDiv.dataset.title = task.title
         const checkboxDiv = document.createElement('div')
         checkboxDiv.classList.add('checkbox')
+        const editDeleteButtonDiv = document.createElement('div')
+        editDeleteButtonDiv.classList.add('edit-delete')
 
         const taskCheckBox = document.createElement('input')
         taskCheckBox.type = 'checkbox'
@@ -45,8 +48,12 @@ function renderTasks(project) {
         taskCheckBox.addEventListener('click', (e) => {
             if (e.target.checked) {
                 task.isCompleted = true
+                localStorage.setItem('listoftodos',JSON.stringify(listOfToDos))
+
             } else {
                 task.isCompleted = false
+                localStorage.setItem('listoftodos',JSON.stringify(listOfToDos))
+
             }
         })
 
@@ -75,6 +82,26 @@ function renderTasks(project) {
         indDiv.appendChild(dateDiv)
         indDiv.appendChild(priorityDiv)
         indDiv.appendChild(projectDiv)
+
+        const editButton = document.createElement('span')
+        editButton.classList.add('material-icons-outlined')
+        editButton.innerText = 'edit'
+
+        const trashButton = document.createElement('span')
+        trashButton.classList.add('material-icons-outlined')
+        trashButton.innerText = 'delete'
+        indDiv.appendChild(editDeleteButtonDiv)
+
+        editDeleteButtonDiv.appendChild(editButton)
+        editDeleteButtonDiv.appendChild(trashButton)
+
+        trashButton.addEventListener('click', (e) => {
+            console.log(e.target.parentElement.parentElement.dataset.title)
+            removeTaskFromList(e.target.parentElement.parentElement.dataset.title)
+            renderTasks()
+        })
+        
+
         
     })  
     localStorage.setItem('listoftodos',JSON.stringify(listOfToDos))
@@ -87,14 +114,3 @@ function renderTasks(project) {
 
 
 export { renderTasks }
-
-{/* <div class='task-canvas2'>
-            <div class="tasks">
-                <div class='task'>
-                    <div class='checkbox'><input type="checkbox" id="mariners" name="0"><label>fake task</label></div>
-                    <div class='date'>2021-01-01</div>
-                    <div class='priority'>2</div>
-                    <div class='project'>inbox</div>
-                </div>
-            </div>
-        </div> */}

@@ -13,4 +13,9 @@ Tasks are now being added correctly
 - [x] Clicking on all should show all tasks
 - [x] figure out how I want tasks displayed
 - [x] add tasks with all fields correctly
-- [ ] display tasks correctly so that they are not all askew
+- [x] display tasks correctly so that they are not all askew
+- [x] make sure local storage is keeping whether or not a task is checked
+- [x] add a way to remove tasks
+- [ ] once a task is removed, go back to the project that you were on
+
+

@@ -39,7 +39,7 @@
 
 .tasks {
     width: 50%;
-    height: 25px;
+    /* height: 25px; */
     background-color: antiquewhite;
     margin: 5px;
     display: flex;
@@ -52,6 +52,11 @@
     display: flex;
     width: 100%;
     justify-content: space-between;
+    flex: 1
+}
+
+.task > * {
+    width: 20%;
 }
 
 

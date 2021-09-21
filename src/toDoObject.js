@@ -65,11 +65,16 @@ const addTask = document.querySelector('.addTask')
 addTask.addEventListener('submit',addTaskToList)
 
 
+function removeTaskFromList(title) {
+    let taskIndex = listOfToDos.findIndex(task => task.title = title)
+    listOfToDos.splice(taskIndex,1)
+    return listOfToDos
+}
 
 
 
 
-export { toDoFactory, listOfToDos, addTask}
+export { toDoFactory, listOfToDos, addTask, removeTaskFromList}
 
 
 // const todo1 = toDoFactory('nick','nick\'s description', '2021-09-04',1,'inbox',false)
