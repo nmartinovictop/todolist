@@ -66,7 +66,7 @@ addTask.addEventListener('submit',addTaskToList)
 
 
 function removeTaskFromList(title) {
-    let taskIndex = listOfToDos.findIndex(task => task.title = title)
+    let taskIndex = listOfToDos.findIndex(task => task.title == title)
     listOfToDos.splice(taskIndex,1)
     return listOfToDos
 }

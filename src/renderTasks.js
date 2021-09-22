@@ -96,9 +96,10 @@ function renderTasks(project) {
         editDeleteButtonDiv.appendChild(trashButton)
 
         trashButton.addEventListener('click', (e) => {
-            console.log(e.target.parentElement.parentElement.dataset.title)
+            // console.log(e.target.parentElement.parentElement.dataset.title)
             removeTaskFromList(e.target.parentElement.parentElement.dataset.title)
-            renderTasks()
+            renderTasks(task.project)
+            
         })
         
 

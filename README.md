@@ -16,6 +16,8 @@ Tasks are now being added correctly
 - [x] display tasks correctly so that they are not all askew
 - [x] make sure local storage is keeping whether or not a task is checked
 - [x] add a way to remove tasks
-- [ ] once a task is removed, go back to the project that you were on
+- [x] once a task is removed, go back to the project that you were on
+- [ ] edit a task
+- [ ] when all tasks are deleted from a project, then delete the project
 
 
