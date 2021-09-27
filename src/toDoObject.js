@@ -2,21 +2,16 @@ import { trigger, closeButton,toggleModal,modal,modalProj,triggerProj,closeButto
 import { addProjectToList, listOfProjects, projectFactory } from './projects.js';
 import { showProjects } from './renderProjects.js';
 import { renderTasks } from './renderTasks.js';
+import { v4 as uuidv4 } from 'uuid';
+
 
 const toDoList = [];
 
-const counterCreator = () => {
-    let count = 0;
-    return () => {
-      return count++;
-    };
-  };
 
-const counter = counterCreator()
 
 const toDoFactory = (title, description, dueDate, priority, project, isCompleted) => {
 
-    let id = counter()
+    let id = uuidv4()
 
     if (project=="") {
         project = "Inbox"
@@ -42,6 +37,7 @@ const toDoFactory = (title, description, dueDate, priority, project, isCompleted
 const listOfToDos = []
 
 function addTaskToList() {
+
     const title = document.querySelector('#title')
     const description = document.querySelector('#description')
     const dueDate = document.querySelector('#date')
@@ -71,10 +67,29 @@ function removeTaskFromList(title) {
     return listOfToDos
 }
 
+function editTask(id) {
+    const title = document.querySelector('#title')
+    const description = document.querySelector('#description')
+    const dueDate = document.querySelector('#date')
+    const priority = document.querySelector('#priority')
+    const project = document.querySelector('#project')
+
+    let taskIndex = listOfToDos.findIndex(task => task.id == id)
+    listOfToDos[taskIndex].title = title
+    listOfToDos[taskIndex].description = description
+    listOfToDos[taskIndex].dueDate = dueDate
+    listOfToDos[taskIndex].priority = priority
+    listOfToDos[taskIndex].project = project
+
+}
 
 
+function findTaskById(id) {
+    return listOfToDos.find(task => task.id == id)
+}
 
-export { toDoFactory, listOfToDos, addTask, removeTaskFromList}
+
+export { toDoFactory, listOfToDos, addTask, removeTaskFromList, findTaskById}
 
 
 // const todo1 = toDoFactory('nick','nick\'s description', '2021-09-04',1,'inbox',false)

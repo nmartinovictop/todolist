@@ -60,7 +60,9 @@
 }
 
 
-
+.hidden-task {
+    display: none
+}
 
 
 

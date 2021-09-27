@@ -2,6 +2,7 @@
 // const { showSpecificProject, currentProject } = require("./projects");
 
 import { taskCanvas } from "./elements.js"
+import { toggleModal } from "./modal.js";
 import { showSpecificProject, currentProject } from './projects.js'
 import { listOfToDos, removeTaskFromList } from "./toDoObject.js";
 
@@ -37,6 +38,8 @@ function renderTasks(project) {
             taskCheckBox.checked = true
         } 
 
+
+
         const taskLabel = document.createElement('label')
         taskLabel.for = task.title
         taskLabel.innerText = task.title
@@ -61,11 +64,15 @@ function renderTasks(project) {
         const description = task.description
         const priority = task.priority
         const project = task.project
+        const id = task.id
+
+ 
 
         const dateDiv = document.createElement('div')
         const descriptionDiv = document.createElement('div')
         const priorityDiv = document.createElement('div')
         const projectDiv = document.createElement('div')
+        const idDiv = document.createElement('div')
 
         dateDiv.innerText = date
         dateDiv.classList.add('date')
@@ -75,6 +82,8 @@ function renderTasks(project) {
         priorityDiv.classList.add('priority')
         projectDiv.innerText = project
         projectDiv.classList.add('project')
+        idDiv.classList.add('hidden-task')
+        idDiv.innerText = id
 
         taskDiv.appendChild(indDiv)
         indDiv.append(checkboxDiv)
@@ -91,6 +100,7 @@ function renderTasks(project) {
         trashButton.classList.add('material-icons-outlined')
         trashButton.innerText = 'delete'
         indDiv.appendChild(editDeleteButtonDiv)
+        indDiv.appendChild(idDiv)
 
         editDeleteButtonDiv.appendChild(editButton)
         editDeleteButtonDiv.appendChild(trashButton)
@@ -100,6 +110,12 @@ function renderTasks(project) {
             removeTaskFromList(e.target.parentElement.parentElement.dataset.title)
             renderTasks(task.project)
             
+        })
+
+        editButton.addEventListener('click',(e) => {
+            let div = e.target
+           let newModal = toggleModal.bind(div)
+           newModal()
         })
         
 

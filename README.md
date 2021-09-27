@@ -18,6 +18,9 @@ Tasks are now being added correctly
 - [x] add a way to remove tasks
 - [x] once a task is removed, go back to the project that you were on
 - [ ] edit a task
+    - [ ] add existing task details to edit modal
+    - [ ] when a user hits edit, then update the task and close the modal 
 - [ ] when all tasks are deleted from a project, then delete the project
+
 
 
