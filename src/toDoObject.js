@@ -68,20 +68,31 @@ function removeTaskFromList(title) {
 }
 
 function editTask(id) {
-    const title = document.querySelector('#title')
-    const description = document.querySelector('#description')
-    const dueDate = document.querySelector('#date')
-    const priority = document.querySelector('#priority')
-    const project = document.querySelector('#project')
+    const title = document.querySelector('#editTitle')
+    const description = document.querySelector('#editDescription')
+    const dueDate = document.querySelector('#editDate')
+    const priority = document.querySelector('#editPriority')
+    const project = document.querySelector('#editProject')
 
     let taskIndex = listOfToDos.findIndex(task => task.id == id)
-    listOfToDos[taskIndex].title = title
-    listOfToDos[taskIndex].description = description
-    listOfToDos[taskIndex].dueDate = dueDate
-    listOfToDos[taskIndex].priority = priority
-    listOfToDos[taskIndex].project = project
+    console.log(taskIndex)
+    listOfToDos[taskIndex].title = title.value
+    listOfToDos[taskIndex].description = description.value
+    listOfToDos[taskIndex].dueDate = dueDate.value
+    listOfToDos[taskIndex].priority = priority.value
+    listOfToDos[taskIndex].project = project.value
+    console.log(listOfToDos)
+    
+    const editModal = document.querySelector('.edit-modal')
+    localStorage.setItem('listoftodos',JSON.stringify(listOfToDos))
+    let setProject = project.value =="" ? "Inbox" : project.value
 
+    let newToggle = toggleModal.bind(editModal)
+    newToggle()
+    renderTasks(setProject)
+    addTask.reset()
 }
+
 
 
 function findTaskById(id) {
@@ -89,7 +100,7 @@ function findTaskById(id) {
 }
 
 
-export { toDoFactory, listOfToDos, addTask, removeTaskFromList, findTaskById}
+export { toDoFactory, listOfToDos, addTask, removeTaskFromList, findTaskById, editTask}
 
 
 // const todo1 = toDoFactory('nick','nick\'s description', '2021-09-04',1,'inbox',false)

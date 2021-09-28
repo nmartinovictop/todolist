@@ -20,6 +20,7 @@ Tasks are now being added correctly
 - [ ] edit a task
     - [ ] add existing task details to edit modal
     - [ ] when a user hits edit, then update the task and close the modal 
+Weird bug where editing a modal works on many
 - [ ] when all tasks are deleted from a project, then delete the project
 
 

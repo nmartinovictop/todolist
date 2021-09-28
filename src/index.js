@@ -1,4 +1,4 @@
-import { listOfToDos, addTask, toDoFactory} from './toDoObject.js'
+import { listOfToDos, addTask, toDoFactory,editTaskButton} from './toDoObject.js'
 import { addProjectToList, projectFactory, listOfProjects, showSpecificProject, currentProject } from './projects.js'
 import { showProjects } from './renderProjects.js'
 import { renderTasks } from './renderTasks.js'

@@ -1,4 +1,4 @@
-import { findTaskById } from "./toDoObject";
+import { findTaskById,editTask } from "./toDoObject";
 
 
 const modal = document.querySelectorAll(".modal");
@@ -11,7 +11,10 @@ function toggleModal() {
 
     if (this.classList.contains('trigger')) {
         this.nextElementSibling.classList.toggle("show-modal");
-    } else if (this.parentElement.parentElement.classList.contains("modal")){
+    } else if (this.classList.contains('show-modal')) {
+        this.classList.toggle('show-modal')
+    } 
+    else if (this.parentElement.parentElement.classList.contains("modal")){
         this.parentElement.parentElement.classList.toggle("show-modal")
     } else if (this.classList.contains('material-icons-outlined')) {
         let editModal = document.querySelector('.edit-modal')
@@ -23,8 +26,16 @@ function toggleModal() {
         const project = document.querySelector('#editProject')
 
         const task = findTaskById(this.parentElement.nextElementSibling.innerText)
-        console.log(task)
+        const taskId = this.parentElement.nextElementSibling.innerText
+        title.value = task.title
+        description.value = task.description
+        dueDate.value = task.dueDate
+        priority.value = task.priority
+        project.value = task.project
         
+        const editTaskButton = document.querySelector('.editTask')
+        editTaskButton.addEventListener('submit',() => editTask(taskId))
+
     } 
     
     else {
