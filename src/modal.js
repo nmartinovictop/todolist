@@ -5,9 +5,9 @@ const modal = document.querySelectorAll(".modal");
 const trigger = document.querySelectorAll(".trigger");
 const closeButton = document.querySelectorAll(".close-button");
 const submitButton = document.querySelectorAll(".submit-button")
+const editTaskButton = document.querySelector('.editTask')
 
 function toggleModal() {
-    console.log(this)
 
     if (this.classList.contains('trigger')) {
         this.nextElementSibling.classList.toggle("show-modal");
@@ -17,6 +17,7 @@ function toggleModal() {
     else if (this.parentElement.parentElement.classList.contains("modal")){
         this.parentElement.parentElement.classList.toggle("show-modal")
     } else if (this.classList.contains('material-icons-outlined')) {
+
         let editModal = document.querySelector('.edit-modal')
         editModal.classList.toggle('show-modal')
         const title = document.querySelector('#editTitle')
@@ -32,9 +33,13 @@ function toggleModal() {
         dueDate.value = task.dueDate
         priority.value = task.priority
         project.value = task.project
-        
-        const editTaskButton = document.querySelector('.editTask')
-        editTaskButton.addEventListener('submit',() => editTask(taskId))
+
+        const clickFunction = () => editTask(taskId)
+        editTaskButton.addEventListener('submit', clickFunction,{once:true})
+
+
+
+
 
     } 
     
@@ -57,4 +62,4 @@ window.addEventListener("click", windowOnClick);
 
 
 
-export { trigger, closeButton, toggleModal, modal,submitButton }
+export { trigger, closeButton, toggleModal, modal,submitButton,editTaskButton }

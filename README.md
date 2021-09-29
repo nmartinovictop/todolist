@@ -17,11 +17,12 @@ Tasks are now being added correctly
 - [x] make sure local storage is keeping whether or not a task is checked
 - [x] add a way to remove tasks
 - [x] once a task is removed, go back to the project that you were on
-- [ ] edit a task
-    - [ ] add existing task details to edit modal
-    - [ ] when a user hits edit, then update the task and close the modal 
-Weird bug where editing a modal works on many
-- [ ] when all tasks are deleted from a project, then delete the project
+- [x] edit a task
+    - [x] add existing task details to edit modal
+    - [x] when a user hits edit, then update the task and close the modal 
+- [ ] Add an option to delete a project (and all included tasks)
+    - [ ] should not be available on "All" or "Inbox"
+    - [ ] BONUS: add a confirmation modal
 
 
 

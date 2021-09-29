@@ -1,4 +1,4 @@
-import { trigger, closeButton,toggleModal,modal,modalProj,triggerProj,closeButtonProj } from './modal.js'
+import { trigger, closeButton,toggleModal,modal,modalProj,triggerProj,closeButtonProj,editTaskButton } from './modal.js'
 import { addProjectToList, listOfProjects, projectFactory } from './projects.js';
 import { showProjects } from './renderProjects.js';
 import { renderTasks } from './renderTasks.js';
@@ -75,13 +75,11 @@ function editTask(id) {
     const project = document.querySelector('#editProject')
 
     let taskIndex = listOfToDos.findIndex(task => task.id == id)
-    console.log(taskIndex)
     listOfToDos[taskIndex].title = title.value
     listOfToDos[taskIndex].description = description.value
     listOfToDos[taskIndex].dueDate = dueDate.value
     listOfToDos[taskIndex].priority = priority.value
     listOfToDos[taskIndex].project = project.value
-    console.log(listOfToDos)
     
     const editModal = document.querySelector('.edit-modal')
     localStorage.setItem('listoftodos',JSON.stringify(listOfToDos))
@@ -91,6 +89,7 @@ function editTask(id) {
     newToggle()
     renderTasks(setProject)
     addTask.reset()
+
 }
 
 
