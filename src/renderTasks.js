@@ -3,7 +3,8 @@
 
 import { taskCanvas } from "./elements.js"
 import { toggleModal } from "./modal.js";
-import { showSpecificProject, currentProject } from './projects.js'
+import { showSpecificProject, currentProject, listOfProjects } from './projects.js'
+import { showProjects } from "./renderProjects.js";
 import { listOfToDos, removeTaskFromList } from "./toDoObject.js";
 
 function renderTasks(project) {
@@ -120,6 +121,28 @@ function renderTasks(project) {
 
         
     })  
+
+    const deleteButton = document.createElement('button')
+    deleteButton.textContent = "Delete all tasks and project"
+    if (project == 'All' || project == 'Inbox' ) {
+
+    } else {
+    taskCanvas.appendChild(deleteButton)
+    }
+
+    deleteButton.addEventListener('click', () => {
+        const nick = listOfToDos.filter(task => task.project !== project)
+        listOfToDos.splice(0,listOfToDos.length)
+        nick.forEach(task => listOfToDos.push(task))
+        let projectIndex = listOfProjects.find(task => console.log(task.title == project))
+        listOfProjects.splice(projectIndex,1)
+        showProjects()
+        renderTasks("Inbox")
+        
+    })
+
+
+
     localStorage.setItem('listoftodos',JSON.stringify(listOfToDos))
 
 }
