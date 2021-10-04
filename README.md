@@ -20,9 +20,9 @@ Tasks are now being added correctly
 - [x] edit a task
     - [x] add existing task details to edit modal
     - [x] when a user hits edit, then update the task and close the modal 
-- [ ] Add an option to delete a project (and all included tasks)
+- [x] Add an option to delete a project (and all included tasks)
     - [ ] should not be available on "All" or "Inbox"
     - [ ] BONUS: add a confirmation modal
-
+- [ ] Add time based "projects
 
 

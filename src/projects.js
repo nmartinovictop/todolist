@@ -6,7 +6,7 @@ const listOfProjects = []
 
 if (localStorage.length == 0) {
 
-let addProjects = [{title: 'All'},{title: "Inbox"}]
+let addProjects = [{title: 'All'},{title: "Inbox"},{title:"Today"},{title:"Overdue"}, {title: "Next_7_Days"}]
 addProjects.forEach(proj => listOfProjects.push(proj))
 localStorage.setItem('listofprojects',JSON.stringify(listOfProjects))
 }
@@ -21,6 +21,7 @@ function addProjectToList() {
     const title = document.querySelector('#project-title')
     const description = document.querySelector('#project-description')
     listOfProjects.push(projectFactory(title.value,description.value))
+    console.log(listOfProjects)
     let newToggle = toggleModal.bind(this)
     newToggle()
     submit.reset()
@@ -39,9 +40,19 @@ const displayListOfToDos = []
 
 function showSpecificProject(project) {
     // displayListOfToDos.length = 0
-    const projectList = listOfToDos.filter( todo => {
+    var projectList
+
+    if (project == "Today" ) {
+        
+    } else {
+
+    projectList = listOfToDos.filter( todo => {
         return todo.project == project
     })
+    }
+
+
+
     return projectList
 }
 

@@ -6,6 +6,8 @@ import { toggleModal } from "./modal.js";
 import { showSpecificProject, currentProject, listOfProjects } from './projects.js'
 import { showProjects } from "./renderProjects.js";
 import { listOfToDos, removeTaskFromList } from "./toDoObject.js";
+import { compareAsc, format } from 'date-fns'
+
 
 function renderTasks(project) {
     while (taskCanvas.firstChild) {
@@ -124,8 +126,8 @@ function renderTasks(project) {
 
     const deleteButton = document.createElement('button')
     deleteButton.textContent = "Delete all tasks and project"
-    if (project == 'All' || project == 'Inbox' ) {
-
+    if (project == 'All' || project == 'Inbox' || project == "Today" || project == "Next_7_Days" || project == "Overdue") {
+        
     } else {
     taskCanvas.appendChild(deleteButton)
     }
@@ -134,10 +136,13 @@ function renderTasks(project) {
         const nick = listOfToDos.filter(task => task.project !== project)
         listOfToDos.splice(0,listOfToDos.length)
         nick.forEach(task => listOfToDos.push(task))
-        let projectIndex = listOfProjects.find(task => console.log(task.title == project))
+        let projectIndex = listOfProjects.findIndex(task => (task.title == project))
+        console.log(projectIndex)
         listOfProjects.splice(projectIndex,1)
         showProjects()
         renderTasks("Inbox")
+            localStorage.setItem('listofprojects',JSON.stringify(listOfProjects))
+
         
     })
 

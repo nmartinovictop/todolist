@@ -3,6 +3,7 @@ import { addProjectToList, listOfProjects, projectFactory } from './projects.js'
 import { showProjects } from './renderProjects.js';
 import { renderTasks } from './renderTasks.js';
 import { v4 as uuidv4 } from 'uuid';
+import { compareAsc, format } from 'date-fns'
 
 
 const toDoList = [];
@@ -30,6 +31,8 @@ const toDoFactory = (title, description, dueDate, priority, project, isCompleted
 
         showProjects()
     }
+
+    dueDate = format(new Date(dueDate),"MM/dd/yyyy")
 
     return { title, description, dueDate, priority, project, isCompleted,id }
 }
