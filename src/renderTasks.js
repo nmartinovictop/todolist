@@ -6,7 +6,8 @@ import { toggleModal } from "./modal.js";
 import { showSpecificProject, currentProject, listOfProjects } from './projects.js'
 import { showProjects } from "./renderProjects.js";
 import { listOfToDos, removeTaskFromList } from "./toDoObject.js";
-import { compareAsc, format } from 'date-fns'
+import { compareAsc, format, isPast, isToday,add,differenceInDays } from 'date-fns'
+
 
 
 function renderTasks(project) {
@@ -14,9 +15,39 @@ function renderTasks(project) {
         taskCanvas.firstChild.remove();
     }
 
+    var tasks
+    // const tasks = project === 'All' ? listOfToDos : showSpecificProject(project)
 
-    const tasks = project === 'All' ? listOfToDos : showSpecificProject(project)
+    if (project === 'All') {
+        tasks =  listOfToDos
+    } else if (project === 'Today') {
+        tasks = listOfToDos.filter(task => {
+            let now = new Date()
+            let taskDate = new Date(task.dueDate)
+            return isToday(taskDate)
+        })
+    } else if (project == 'Overdue') {
+        tasks = listOfToDos.filter(task => {
+            let now = new Date()
+            let taskDate = new Date(task.dueDate)
+            return isPast(taskDate)
+        })
 
+    } else if (project == 'Next_7_Days') {
+        tasks = listOfToDos.filter(task => {
+            let now = new Date()
+            let taskDate = new Date(task.dueDate)
+
+            const next_7_days = add(now, {
+                days: 7,
+              })
+            return differenceInDays(now,taskDate) < 0 && differenceInDays(now,taskDate) > -7
+
+
+        })
+    } else {
+        tasks = showSpecificProject(project)
+    }
 
     
     tasks.forEach( task => {

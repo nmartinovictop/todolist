@@ -21,8 +21,8 @@ Tasks are now being added correctly
     - [x] add existing task details to edit modal
     - [x] when a user hits edit, then update the task and close the modal 
 - [x] Add an option to delete a project (and all included tasks)
-    - [ ] should not be available on "All" or "Inbox"
-    - [ ] BONUS: add a confirmation modal
+    - [x] should not be available on "All" or "Inbox"
+    - [x] BONUS: add a confirmation modal
 - [ ] Add time based "projects
 
-
+Overall, this project is functionally done.  I may spend an hour trying to make the front end better, but overall all of the functionality that I wanted is available.
