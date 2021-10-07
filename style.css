@@ -68,6 +68,11 @@ html {
     display: none
 }
 
+.selected-project {
+    background-color: black;
+    color: white
+}
+
 
 
 
